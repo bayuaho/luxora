@@ -1,0 +1,502 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    background: #ffffff;
+    color: #0e1f2f;
+}
+
+/* ============================
+    HEADER & HERO BACKGROUND
+============================ */
+
+.site-header {
+    position: relative;
+    width: 100%;
+    height: 100svh;
+    overflow: hidden;
+}
+
+.hero-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100svh;
+    object-fit: cover;
+    filter: brightness(60%);
+    z-index: -1;
+}
+
+.hero-center-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #fff;
+    z-index: 20;
+}
+
+.hero-center-text h1 {
+    font-size: 40px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: white;
+    text-shadow: 0 4px 20px rgba(0,0,0,0.5);
+    animation: fadeInUp 1.2s ease-out forwards;
+}
+
+.title-atas {
+    text-align: center;
+    padding: 100px 20px 50px; /* Ditambahkan padding horizontal */
+}
+
+/* Navbar */
+.header-container {
+    position: relative;
+    z-index: 9999;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 80px; /* Default Desktop */
+    background-color: rgba(0, 0, 0, 0.021);
+}
+
+.header-container a {
+    text-decoration: none;
+    color: white;
+}
+
+
+.logo h1 {
+    font-size: 32px;
+    font-weight: 300;
+    letter-spacing: 10px;
+    color: rgba(255,255,255,0.85);
+}
+
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 28px;
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    font-size: 18px;
+    letter-spacing: 1px;
+    color: rgba(255,255,255,0.85);
+}
+
+.filter-container {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.filter-container label {
+    font-size: 18px;
+    color: #0e1f2f;
+    margin-right: 10px;
+}
+
+.filter-container select {
+    padding: 8px 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background: #fff;
+    cursor: pointer;
+}
+
+.filter-container select:focus {
+    outline: none;
+    border-color: #007bff;
+}
+
+/* ====================================
+    HAMBURGER MENU TOGGLE BASE STYLES
+==================================== */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 22px;
+    cursor: pointer;
+    z-index: 10001;
+}
+
+.menu-toggle .bar {
+    width: 100%;
+    height: 3px;
+    background-color: #fff;
+    border-radius: 4px;
+    transition: all 0.4s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+}
+
+/* Animasi X */
+.menu-toggle.is-active .bar:nth-child(1) {
+    transform: translateY(9.5px) rotate(45deg); /* Disesuaikan posisi */
+    background-color: #ffcc00;
+}
+.menu-toggle.is-active .bar:nth-child(2) {
+    opacity: 0;
+    transform: translateX(10px);
+}
+.menu-toggle.is-active .bar:nth-child(3) {
+    transform: translateY(-9.5px) rotate(-45deg); /* Disesuaikan posisi */
+    background-color: #ffcc00;
+}
+
+
+/* ====================================
+    DESTINATION GRID LAYOUT
+==================================== */
+
+.grid {
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 20px; /* Ditambahkan padding horizontal */
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 24px;
+}
+
+.card {
+    margin-top: 50px;
+    background: #fff;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, .08);
+    transition: transform .3s ease, box-shadow .3s ease; /* Transisi dipindah ke sini */
+}
+
+.card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+}
+
+/* CARD BESAR (2 DI ATAS) */
+.card.big {
+    grid-column: span 3;
+}
+
+.card.big img {
+    height: 280px;
+}
+
+/* CARD KECIL (3 SEJAJAR) */
+.card.small {
+    grid-column: span 2;
+}
+
+.content {
+    padding: 14px 16px 18px;
+}
+
+.title {
+    font-size: 15px;
+    font-weight: 600;
+    margin: 0 0 6px;
+    color: #222;
+}
+
+.location {
+    font-size: 13px;
+    color: #777;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.link-card {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+}
+
+.link-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 40px rgba(0,0,0,0.15);
+}
+
+.see-other-btn {
+    padding: 14px 36px;
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    border-radius: 30px;
+    background-color: #000;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 70px;
+    margin-bottom: 50px; /* Tambahkan margin bawah agar tidak mepet footer */
+}
+
+.see-other-btn:hover {
+    background-color: #333;
+    transform: translateY(-3px);
+}
+
+
+/* ===========================
+    FOOTER SECTION
+=========================== */
+.footer {
+    background-color: #111;
+    color: #fff;
+    padding: 60px 20px;
+    margin-top: 50px;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 40px;
+}
+
+
+/* ============================
+    KEYFRAMES
+============================ */
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translate(0%, 40%);
+    }
+    to {
+        opacity: 1;
+        transform: translate(0, 0);
+    }
+}
+
+
+/* ====================================
+    RESPONSIVE MEDIA QUERIES
+==================================== */
+
+/* Medium Devices (Tablet - Max 900px) */
+@media (max-width: 900px) {
+    /* 1. Header/Navbar Setup */
+    .header-container {
+        padding: 20px 30px;
+    }
+    
+    .logo h1 {
+        font-size: 26px;
+        letter-spacing: 6px;
+    }
+    
+    /* 2. Nav Menu (Floating Card) */
+    .menu-toggle {
+        display: flex;
+    }
+
+    .navbar {
+        position: absolute;
+        top: 80px; 
+        right: 30px; 
+        width: 250px;
+        background: rgba(14, 31, 47, 0.95);
+        backdrop-filter: blur(10px);
+        border-radius: 15px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+        padding: 20px 0;
+        transform-origin: top right;
+        transform: scale(0);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        z-index: 10000;
+    }
+
+    .navbar::before {
+        content: '';
+        position: absolute;
+        top: -8px;
+        right: 20px;
+        width: 0; 
+        height: 0; 
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        border-bottom: 8px solid rgba(14, 31, 47, 0.95);
+    }
+
+    .navbar.active {
+        transform: scale(1);
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .navbar ul {
+        flex-direction: column;
+        gap: 0;
+    }
+    
+    .navbar ul li {
+        width: 100%;
+        border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    
+    .navbar ul li:last-child {
+        border-bottom: none;
+    }
+    
+    .navbar ul li a {
+        display: block;
+        padding: 15px 25px;
+        font-size: 16px;
+        color: #ddd;
+        text-align: left;
+        transition: 0.3s;
+    }
+    
+    .navbar ul li a:hover {
+        background: rgba(255, 204, 0, 0.1);
+        color: #ffcc00;
+        padding-left: 35px;
+    }
+
+    /* 3. Grid Layout (Dari 6 kolom menjadi 2 kolom) */
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .card.big,
+    .card.small {
+        grid-column: span 2; /* Setiap kartu mengambil 2 kolom penuh */
+    }
+    
+    /* 4. Footer: 2 kolom */
+    .footer-container {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    /* Newsletter di tablet tetap 2 kolom, tapi diubah ke vertikal jika perlu */
+    .footer-newsletter form {
+        flex-direction: column;
+    }
+}
+
+/* Small Devices (Mobile - Max 600px) */
+@media (max-width: 600px) {
+    /* Header/Navbar */
+    .header-container {
+        padding: 15px 20px; /* Padding lebih kecil di ponsel */
+    }
+    
+    .hero-center-text h1 {
+        font-size: 30px; /* Ukuran teks hero disesuaikan */
+        letter-spacing: 2px;
+    }
+
+    /* Grid Layout (Dari 2 kolom menjadi 1 kolom) */
+    .grid {
+        grid-template-columns: 1fr;
+        gap: 15px; /* Kurangi gap antar kartu */
+    }
+
+    .card.big,
+    .card.small {
+        grid-column: span 1; /* Setiap kartu mengambil 1 kolom penuh */
+    }
+    
+    .card.big img {
+        height: 200px; /* Tinggi gambar besar dikurangi */
+    }
+    
+    .title-atas h1 {
+        font-size: 28px;
+    }
+    
+    /* Footer: 1 kolom */
+    .footer-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    /* Merapikan Newsletter */
+    .footer-newsletter form {
+        flex-direction: column;
+        max-width: 300px;
+        margin: 0 auto; /* Tengah di ponsel */
+    }
+    
+    .footer-newsletter input,
+    .footer-newsletter button {
+        width: 100%;
+    }
+    
+    .footer-social {
+        margin-bottom: 30px;
+    }
+}
+
+/* Lightbox Styles */
+.lightbox {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    justify-content: center;
+    align-items: center;
+}
+
+.lightbox img {
+    max-width: 80%;
+    max-height: 80%;
+    object-fit: contain;
+}
+
+.close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 24px;
+}
+
+.prev {
+    left: 20px;
+}
+
+.next {
+    right: 20px;
+}
+
+.prev:hover, .next:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
